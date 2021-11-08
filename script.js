@@ -34,7 +34,9 @@ document.querySelector('.busca').addEventListener('submit', async(evento) => {
 
 
 function showMsg(msg) {
+    document.querySelector(".resultado").style.display = "none";
     document.querySelector('.aviso').innerHTML = msg;
+    document.querySelector('.aviso').style.display = "flex";
 }
 
 function showInfo(dados) {
@@ -42,7 +44,8 @@ function showInfo(dados) {
     document.querySelector('.aviso').style.display = "none";
     document.querySelector('.titulo').innerHTML = `${dados.nome}`;
     document.querySelector('.tempInfo').innerHTML = `${dados.temperatura}  <sup>ºC</sup>`;
-    document.querySelector('.ventoInfo').innerHTML = `${dados.ventoVel}`;
+    document.querySelector('.ventoInfo').innerHTML = `${dados.ventoVel} <span>km/h</span>`;
+    document.querySelector(".ventoPonto").style.transform = `rotate(${dados.ventoDir}deg)`;
 
     document.querySelector('.icone').setAttribute('src', `http://openweathermap.org/img/wn/${dados.icone}@2x.png`);
 
