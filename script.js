@@ -8,12 +8,18 @@ document.querySelector('.busca').addEventListener('submit', async(evento) => {
 
         let requisicao = `http://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cidade)}&APPID=0e9cecdb81e7b1a3637f3173424f5501&units=metric&lang=pt_br`;
 
-        // let requisicao = `http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=0e9cecdb81e7b1a3637f3173424f5501`;
-
         await axios.get(requisicao).then(
                 (resposta) => {
-
                     console.log(resposta);
+                    showInfo({
+                        nome: resposta.data.name,
+                        temperatura: resposta.data.main.temp,
+                        ventoVel: resposta.data.wind.speed,
+                        ventoDir: resposta.data.wind.deg,
+                        icone: resposta.data.weather[0].icon,
+                        descricao: resposta.data.weather[0].description
+                    });
+
                 }
 
             )
@@ -29,5 +35,17 @@ document.querySelector('.busca').addEventListener('submit', async(evento) => {
 
 function showMsg(msg) {
     document.querySelector('.aviso').innerHTML = msg;
+}
 
+function showInfo(dados) {
+    document.querySelector(".resultado").style.display = "flex";
+    document.querySelector('.aviso').style.display = "none";
+    document.querySelector('.titulo').innerHTML = `${dados.nome}`;
+    document.querySelector('.tempInfo').innerHTML = `${dados.temperatura}  <sup>ºC</sup>`;
+    document.querySelector('.ventoInfo').innerHTML = `${dados.ventoVel}`;
+
+    document.querySelector('.icone').setAttribute('src', `http://openweathermap.org/img/wn/${dados.icone}@2x.png`);
+
+    console.log(document.querySelector('.icone').getAttribute('src'));
+    console.log(dados);
 }
