@@ -46,9 +46,16 @@ function showInfo(dados) {
     document.querySelector('.tempInfo').innerHTML = `${dados.temperatura}  <sup>ºC</sup>`;
     document.querySelector('.ventoInfo').innerHTML = `${dados.ventoVel} <span>km/h</span>`;
     document.querySelector(".ventoPonto").style.transform = `rotate(${dados.ventoDir}deg)`;
+    let body = document.querySelector('body');
+    console.log(body);
+
+    body.style.backgroundImage = `url(./images/${dados.icone}.jpg)`;
+    // url(images/${dados.icone} + '.jpg')`;
+
+    console.log(body.style);
 
     document.querySelector('.icone').setAttribute('src', `http://openweathermap.org/img/wn/${dados.icone}@2x.png`);
 
-    console.log(document.querySelector('.icone').getAttribute('src'));
+    // console.log(document.querySelector('.icone').getAttribute('src'));
     console.log(dados);
 }
