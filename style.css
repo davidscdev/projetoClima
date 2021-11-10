@@ -12,11 +12,26 @@ body {
     flex-direction: column;
     background-color: #333;
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url('images/chuva.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 h1 {
     color: #FFF;
     margin: 20px 0;
+}
+
+.pesquisa {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    min-width: 450px;
+    min-height: 250px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
 }
 
 .busca {
@@ -54,7 +69,8 @@ h1 {
     border: 1px dotted #FFF;
     margin-top: 20px;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
 }
 
 .titulo {
@@ -83,7 +99,7 @@ h1 {
 
 .tempTitulo,
 .ventoTitulo {
-    color: #777;
+    color: #CCC;
     font-size: 14px;
     margin-bottom: 5px;
 }
