@@ -46,6 +46,7 @@ function showInfo(dados) {
     document.querySelector('.tempInfo').innerHTML = `${dados.temperatura}  <sup>ºC</sup>`;
     document.querySelector('.ventoInfo').innerHTML = `${dados.ventoVel} <span>km/h</span>`;
     document.querySelector(".ventoPonto").style.transform = `rotate(${dados.ventoDir}deg)`;
+    document.querySelector('.description').innerHTML = `${dados.descricao}`;
     let body = document.querySelector('body');
     console.log(body);
 
